@@ -1,4 +1,7 @@
-this is my code.
-this is my code.
-this is my code.
-this is my code.
+1. sudo yum update -y
+2. sudo yum install java-17-amazon-corretto -y 
+4. sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+5. sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+6. sudo yum install jenkins -y
+7. sudo systemctl enable jenkins
+8. sudo systemctl start jenkins
