@@ -1,3 +1,5 @@
+Steps to install jenkins on amazon linux AMI :
+===============================
 1. sudo yum update -y
 2. sudo yum install java-17-amazon-corretto -y 
 4. sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
@@ -5,3 +7,30 @@
 6. sudo yum install jenkins -y
 7. sudo systemctl enable jenkins
 8. sudo systemctl start jenkins
+
+
+Steps to install jenkins on Amazon ubuntu Server :
+========================
+1. sudo apt update -y
+2. sudo apt install openjdk-17-jdk -y
+3. 
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+4. 
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+2. sudo apt install -y ca-certificates gnupg curl
+3. sudo mkdir -p /etc/apt/keyrings
+4. curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key \
+   | gpg --dearmor | sudo tee /etc/apt/keyrings/jenkins-keyring.gpg > /dev/null
+5. sudo chmod 644 /etc/apt/keyrings/jenkins-keyring.gpg
+6. echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.gpg] https://pkg.jenkins.io/debian-stable binary/" \
+  | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+7. sudo chmod 644 /etc/apt/sources.list.d/jenkins.list
+``
+8. sudo apt update
+9. sudo apt install -y jenkins
+10. systemctl start jenkins
+11. systemctl enable jenkins
