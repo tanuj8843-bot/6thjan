@@ -1,0 +1,2 @@
+As a jenkins developer approach.
+java -jar jenkins.war --httpPort=8082
